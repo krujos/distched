@@ -72,7 +72,5 @@ public class DistributedSchedulerApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DistributedSchedulerApplication.class, args);
-		while (true) {
-		}
 	}
 }
