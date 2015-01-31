@@ -15,7 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.2.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -49,6 +49,23 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.cloudfoundry</groupId>
+				<artifactId>cf-maven-plugin</artifactId>
+				<version>1.1.0</version>
+				<configuration>
+					<target>http://api.run.pivotal.io</target>
+					<org>pcfp</org>
+					<space>jdk</space>
+					<appname>ticktock</appname>
+					<url>ticktock.cfapps.io</url>
+					<memory>1024</memory>
+					<instances>2</instances>
+					<env>
+						<SPRING_PROFILES_ACTIVE>cloud</SPRING_PROFILES_ACTIVE>
+					</env>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
