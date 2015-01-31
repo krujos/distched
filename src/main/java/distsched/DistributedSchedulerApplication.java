@@ -33,6 +33,11 @@ public class DistributedSchedulerApplication {
 	 * timeouts with setnx. It's detailed in the section
 	 * "Correct implementation with a single instance" on the page below.
 	 * 
+	 * This implementation dosen't get  concerned with clock skew, which can be an 
+	 * issue for tasks that have very short intervals (i.e. the interval is shorter 
+	 * than the possible skew) that can be addressed with a vector clock and / or 
+	 * a key naming stragey that is more sophisticated than what I have here. 
+	 * 
 	 * @see <a
 	 *      href="http://redis.io/topics/distlock">http://redis.io/topics/distlock</a>
 	 * 
